@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TRIGGR</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="shortcut icon" href="assets/Logo_1200x628_35fc2b68-d72e-4d16-88b3-00c89bd69e7f.avif" type="image/x-icon"/>
+</head>
+<body>
+  <header>
+    <nav>
+      <div id="logo">
+        <img src="assets/Logo_1200x628_35fc2b68-d72e-4d16-88b3-00c89bd69e7f.avif" height="50px" alt="triggr logo"/>
+      </div>
+      <div id="btn-buy">
+        <a href="https://www.flipkart.com/search?q=triggr%20kraken%20x4" target="_blank">
+          BUY NOW
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <section id="hero" class="fade-in-on-scroll">
+    <div id="ad-hero">
+      <div class="item1">
+        <img src="assets/ACCH2WWTWR74GQDJ_0.webp" height="400px" alt="Product Main"/>
+      </div>
+      <div class="item2">
+        <img src="assets/Logo_1200x628_35fc2b68-d72e-4d16-88b3-00c89bd69e7f.avif" height="150px" alt="Brand Logo"/>
+        <h3>KRAKEN</h3>
+        <h3>X4</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="info">
+    <div class="image-card fade-in-on-scroll"><img src="assets/ACCH2WWTAHPTFBHJ_2.webp" alt="img1"/></div>
+    <div class="image-card fade-in-on-scroll"><img src="assets/ACCH2WWTQYN8KHJK_4.webp" alt="img2"/></div>
+    <div class="image-card fade-in-on-scroll"><img src="assets/ACCH2WWTZUWTRNHP_5.webp" alt="img3"/></div>
+    <div class="image-card fade-in-on-scroll"><img src="assets/ACCH2WWTZUWTRNHP_6.webp" alt="img4"/></div>
+    <div class="image-card fade-in-on-scroll"><img src="assets/ACCH2WWTZUWTRNHP_7.webp" alt="img5"/></div>
+    <div class="image-card fade-in-on-scroll"><img src="assets/ACCH2WWTZUWTRNHP_8.webp" alt="img6"/></div>
+    <div class="image-card fade-in-on-scroll"><img src="assets/ACCH2WWTZUWTRNHP_9.webp" alt="img7"/></div>
+    <div class="image-card fade-in-on-scroll"><img src="assets/ACCH2WWTZUWTRNHP_10.webp" alt="img8"/></div>
+    <div class="image-card fade-in-on-scroll"><img src="assets/ACCH2WWTAHPTFBHJ_11.webp" alt="img9"/></div>
+  </section>
+
+  <section id="product" class="fade-in-on-scroll">
+    <div class="product-pic">
+      <img src="assets/ACCH2WWTZUWTRNHP_3.webp" height="500px" alt="Product Image"/>
+    </div>
+  </section>
+<section id="testimonials" class="fade-in-on-scroll">
+  <h2>What Our Customers Say</h2>
+  <div class="testimonial-container">
+    <div class="testimonial active">
+      <p class="typed-text"></p>
+      <span>- Alex M.</span>
+    </div>
+    <div class="testimonial">
+      <p class="typed-text"></p>
+      <span>- Priya K.</span>
+    </div>
+    <div class="testimonial">
+      <p class="typed-text"></p>
+      <span>- Jordan L.</span>
+    </div>
+  </div>
+  <div class="dots-container">
+    <span class="dot active" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+  </div>
+</section>
+
+
+  <footer class="fade-in-on-scroll">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="assets/Logo_1200x628_35fc2b68-d72e-4d16-88b3-00c89bd69e7f.avif" alt="TRIGGR Logo" height="40px">
+        <p>TRIGGR KRAKEN</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.flipkart.com/search?q=triggr%20kraken%20x4" target="_blank">Buy Now</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#">📷</a>
+        <a href="#">🐦</a>
+        <a href="#">▶️</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 TRIGGR. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-in-on-scroll').forEach(elem => {
+      observer.observe(elem);
+    });
+    
+    const testimonials = [
+  { text: "The KRAKEN X4 changed my gaming experience! Amazing build and performance.", author: "Alex M." },
+  { text: "Highly recommend TRIGGR for anyone serious about quality gear.", author: "Priya K." },
+  { text: "Great product and fast delivery. Will buy again!", author: "Jordan L." }
+];
+
+const testimonialElems = document.querySelectorAll('.testimonial');
+const dots = document.querySelectorAll('.dot');
+
+let currentTestimonial = 0;
+let typingSpeed = 40; // ms per character
+let typingTimeout;
+
+function typeText(element, text, callback) {
+  let i = 0;
+  element.textContent = '';
+  
+  function type() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      typingTimeout = setTimeout(type, typingSpeed);
+    } else if (callback) {
+      setTimeout(callback, 1000); // pause after typing before next
+    }
+  }
+  type();
+}
+
+function showTestimonial(index) {
+  clearTimeout(typingTimeout);
+  
+  testimonialElems.forEach((testimonial, i) => {
+    testimonial.classList.toggle('active', i === index);
+  });
+
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+
+  const typedTextElem = testimonialElems[index].querySelector('.typed-text');
+  typedTextElem.textContent = '';
+  typeText(typedTextElem, testimonials[index].text, () => {
+    // After typing, auto switch after 3 seconds
+    setTimeout(() => {
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }, 3000);
+  });
+}
+
+// Dot click navigation
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    currentTestimonial = parseInt(dot.getAttribute('data-index'));
+    showTestimonial(currentTestimonial);
+  });
+});
+
+// Start animation
+showTestimonial(currentTestimonial);
+
+  </script>
+  
+</body>
+</html>
